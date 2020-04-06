@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: OAuth-SERVICE # ==> This is Service-Id
+     
+ 
+---
+# Items that apply to ALL profiles:   
+eureka:
+  instance:
+    appname: OAuth-SERVICE  # ==> This is a instance of ABC-SERVICE
+  client:   
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://my-eureka-server.com:9000/eureka
+server:
+  port: 8002  servlet:
+    context-path: /ui    session:      cookie:        name: UISESSION
+
+        
+security:
+  oauth2:    client:
+      client-id: OpenCovidId
+      client-secret: secretOpenCovid      access-token-uri: http://localhost:8001/auth/oauth/token
+      user-authorization-uri: http://localhost:8001/auth/oauth/authorize
+      grant-type: "authorization_code"
+    resource:      user-info-uri: http://localhost:8001/auth/rest/hello/principal
