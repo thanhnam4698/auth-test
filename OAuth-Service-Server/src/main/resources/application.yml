@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: OAuth-SERVICE-SERVER # ==> This is Service-Id
+     
+ 
+---
+# Items that apply to ALL profiles:   
+eureka:
+  instance:
+    appname: OAuth-SERVICE-SERVER  # ==> This is a instance of ABC-SERVICE
+  client:   
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://my-eureka-server.com:9000/eureka
+server:
+  port: 8001  servlet:    context-path: /auth
